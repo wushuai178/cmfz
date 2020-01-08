@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.ws.dao.UserDao">
+    <select id="queryUserByTime" resultType="Integer">
+        select count(*) from user where sex=#{sex} and DATE_SUB(NOW(),interval #{day} day) &lt; regist_date
+    </select>
+
+    <select id="queryUserByAddress" resultType="com.baizhi.ws.entity.UserDto">
+        select location 'name',count(location) 'value' from user where sex=#{sex} group by location
+    </select>
+
+    <insert id="fan">
+        insert into user_guru values(#{guruId},#{uid})
+    </insert>
+
+    <select id="selectFanGuru" resultType="Guru">
+        select * from guru where id in (select guruId from user_guru where userId=#{uid})
+    </select>
+</mapper>
