@@ -42,6 +42,9 @@
             $("#userMapMag").click(function () {
                 $("#centerLay").load("${pageContext.request.contextPath}/jsp/map.jsp");
             })
+            $("#chatMag").click(function () {
+                $("#centerLay").load("${pageContext.request.contextPath}/jsp/chat.jsp");
+            })
         });
 
         KindEditor.ready(function (K) {
@@ -193,6 +196,23 @@
                         <div class="panel-body">
                             <ul class="nav" >
                                 <li><a href="javascript:void(0)" id="articleMag">文章管理</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseSix">
+                                聊天室模块
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="nav" >
+                                <li><a href="javascript:void(0)" id="chatMag">聊天室</a></li>
                             </ul>
                         </div>
                     </div>
